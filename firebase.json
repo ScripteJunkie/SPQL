@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": ["firebase.json", "**/.*", "**/api/**", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/callout",
+        "run": {
+          "serviceId": "getquery",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
