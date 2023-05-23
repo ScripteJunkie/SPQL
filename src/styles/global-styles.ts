@@ -9,13 +9,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
   }
 
   #root {
     min-height: 100%;
     min-width: 100%;
+    scroll-margin-top: 8rem;
     .p-dropdown-label {
       padding: 0.5rem;
       font-size: 1rem;

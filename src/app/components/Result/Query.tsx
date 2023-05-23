@@ -61,6 +61,10 @@ export const Query = props => {
         <>
           <h3>Error:</h3>
           <p className="error">No query was generated. Please try again.</p>
+          <p>
+            Received:{'\n'}
+            {JSON.stringify(props.result)}
+          </p>
         </>
       )}
     </QueryBox>

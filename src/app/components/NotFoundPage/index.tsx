@@ -3,6 +3,9 @@ import styled from 'styled-components/macro';
 import { P } from './P';
 import { Helmet } from 'react-helmet-async';
 
+import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
+
 export function NotFoundPage() {
   return (
     <>
@@ -10,21 +13,24 @@ export function NotFoundPage() {
         <title>404 Page Not Found</title>
         <meta name="description" content="Page not found" />
       </Helmet>
+      <Header {...{ showAccount: true }} />
       <Wrapper>
         <Title>
           4
           <span role="img" aria-label="Crying Face">
-            😢
+            😅
           </span>
           4
         </Title>
-        <P>Page not found.</P>
+        <P>We're working hard to get this page up and running.</P>
       </Wrapper>
+      <Footer />
     </>
   );
 }
 
 const Wrapper = styled.div`
+  color: #fff;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -36,10 +42,10 @@ const Wrapper = styled.div`
 const Title = styled.div`
   margin-top: -8vh;
   font-weight: bold;
-  color: black;
-  font-size: 3.375rem;
+  color: #fff;
+  font-size: 5rem;
 
   span {
-    font-size: 3.125rem;
+    font-size: 4.5rem;
   }
 `;

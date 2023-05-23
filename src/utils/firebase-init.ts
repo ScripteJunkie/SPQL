@@ -1,5 +1,15 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+import * as firebase from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
+export const currentUserId = () => {
+  const user = auth.currentUser;
+  if (user) {
+    return user.uid;
+  } else {
+    return null;
+  }
+};
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_PUBLIC_API_KEY,
@@ -12,5 +22,10 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_PUBLIC_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = firebase.initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+// const databaseRef = app.database().ref();
+// export const docsRef = databaseRef.child("docs");
+
+export default firebase;

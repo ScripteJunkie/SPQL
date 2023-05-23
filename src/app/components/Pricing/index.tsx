@@ -4,9 +4,6 @@ import { media } from 'styles/media';
 import { InputSwitch } from 'primereact/inputswitch';
 import { Card } from 'primereact/card';
 
-import 'primereact/resources/themes/mdc-dark-deeppurple/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeflex/primeflex.css';
 import { Button } from 'primereact/button';
 import styled from 'styled-components';
 
@@ -20,7 +17,7 @@ function PricingCard({
   pricingType,
 }) {
   return (
-    <div className="col-12 lg:col-4">
+    <div className="col-12 lg:col-4" id="pricing">
       <div className="p-3 h-full">
         <div
           className="shadow-2 p-3 h-full flex flex-column surface-card"
@@ -65,6 +62,9 @@ function PricingCard({
               aria-label="Buy Now"
               className="p-button p-component p-3 w-full mt-auto"
               style={{ borderRadius: '12px' }}
+              onClick={() => {
+                window.location.href = '/signup';
+              }}
             >
               <span className="p-button-label p-c">{buttonLabel}</span>
               <span
@@ -79,6 +79,9 @@ function PricingCard({
               aria-label="Buy Now"
               className="p-button p-component p-3 w-full mt-auto p-button-outlined"
               style={{ borderRadius: '12px' }}
+              onClick={() => {
+                window.location.href = '/signup';
+              }}
             >
               <span className="p-button-label p-c">{buttonLabel}</span>
               <span
@@ -117,14 +120,21 @@ export function Pricing() {
   return (
     <>
       <div
-        style={{ width: '100%', maxWidth: '90rem', padding: '0 auto' }}
+        id="pricing"
+        style={{
+          background: '#fff',
+          width: '100%',
+          maxWidth: '90rem',
+          padding: '0 auto',
+          overflowX: 'hidden',
+        }}
         className="container mx-auto"
       >
-        <div className="surface-ground px-4 py-8 md:px-6 lg:px-8">
+        <div className="surface-ground">
           <div className="text-900 font-bold text-6xl mb-4 text-center">
             Pricing that Packs a Punch
           </div>
-          <div className="text-700 text-xl mb-6 text-center">
+          <div className="text-700 text-xl mb-6 text-center px-2">
             Accounts for both your analysts and the everyday user, whether
             they're marketing, sales, or support.
           </div>
@@ -151,12 +161,14 @@ export function Pricing() {
           <div className="grid">
             <PricingCard
               title="Team"
-              description="5 Accounts, 20 Dashboards, 10GB Storage"
+              description="For the small team that wants to get started with analytics"
               price="149"
               features={[
-                'Arcu vitae elementum',
-                'Dui faucibus in ornare',
-                'Morbi tincidunt augue',
+                '5 Accounts',
+                '20 Dashboards',
+                '10GB Storage',
+                '2 Data Sources',
+                'Basic Analytics Features',
               ]}
               buttonLabel="Buy Now"
               buttonStyle="filled"
@@ -164,12 +176,15 @@ export function Pricing() {
             />
             <PricingCard
               title="Business"
-              description="25 Accounts, Unlimited Dashboards, 100GB Storage"
+              description="For the growing business that wants to scale analytics"
               price="999"
               features={[
-                'Arcu vitae elementum',
-                'Dui faucibus in ornare',
-                'Morbi tincidunt augue',
+                '25 Accounts',
+                'Unlimited Dashboards',
+                '100GB Storage',
+                'Up to 10 Data Sources',
+                'Advanced Analytics Features',
+                'Email Support',
               ]}
               buttonLabel="Buy Now"
               buttonStyle="filled"
@@ -177,12 +192,15 @@ export function Pricing() {
             />
             <PricingCard
               title="Beyond"
-              description="Unlimited Accounts, Unlimited Dashboards, Unlimited Storage"
+              description="For the enterprise that wants to go beyond analytics"
               price="Custom"
               features={[
-                'Arcu vitae elementum',
-                'Dui faucibus in ornare',
-                'Morbi tincidunt augue',
+                'Custom Accounts',
+                'Custom Dashboards',
+                'Custom Storage',
+                'Custom Data Sources',
+                'Custom Analytics Features',
+                'Email/Phone Support',
               ]}
               buttonLabel="Contact Us"
               buttonStyle="outlined"

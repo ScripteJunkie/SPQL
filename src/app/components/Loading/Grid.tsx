@@ -75,7 +75,7 @@ const Loading = styled.div`
   }
 `;
 
-export function Grid() {
+export function Grid(props: { text?: string }) {
   return (
     <>
       <Loading>
@@ -91,6 +91,7 @@ export function Grid() {
           <div></div>
         </div>
       </Loading>
+      {props.text && <div style={{ textAlign: 'center' }}>{props.text}</div>}
     </>
   );
 }
